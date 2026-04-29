@@ -16,7 +16,7 @@ export default function Vision() {
         </button>
       </div>
 
-      <img src="/images/factory.jpg" className="w-full h-full object-cover" />
+      <img src="/images/home.png" className="w-full h-full object-cover" />
 
     </section>
   );

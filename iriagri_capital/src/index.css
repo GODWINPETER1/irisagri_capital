@@ -10,3 +10,16 @@
 .swiper-pagination-bullet-active {
   background: #A16207;
 }
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+  background: #fff;
+}
+
+.input:focus {
+  border-color: #166534;
+  box-shadow: 0 0 0 2px rgba(22, 101, 52, 0.2);
+}

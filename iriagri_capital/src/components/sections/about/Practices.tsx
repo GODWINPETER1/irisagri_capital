@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { scaleIn, fadeUp } from "../../../utils/animations";
 
 const items = [
-  { title: "Quality Seedlings", img: "/images/about/seedling.jpg" },
-  { title: "Regular Pruning", img: "/images/about/pruning.jpg" },
-  { title: "Natural Pest Control", img: "/images/about/pest.jpg" },
-  { title: "Careful Harvesting", img: "/images/about/harvest.jpg" },
+  { title: "Quality Seedlings", img: "/images/seed.jpg" },
+  { title: "Regular Pruning", img: "/images/pruning.jpg" },
+  { title: "Natural Pest Control", img: "/images/pest.jpg" },
+  { title: "Careful Harvesting", img: "/images/harvesting.jpg" },
 ];
 
 export default function Practices() {

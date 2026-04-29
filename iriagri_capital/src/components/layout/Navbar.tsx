@@ -7,13 +7,15 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Optional: prevent background scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+  }, [open]);
 
   return (
     <>
@@ -28,13 +30,14 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
 
           {/* LOGO */}
-          <h1
+          <Link
+            to="/"
             className={`font-bold text-lg transition ${
               scrolled ? "text-primary" : "text-white"
             }`}
           >
             Cashew Farm
-          </h1>
+          </Link>
 
           {/* DESKTOP NAV */}
           <nav
@@ -49,8 +52,9 @@ export default function Navbar() {
             <Link to="/contact">Contact</Link>
           </nav>
 
-          {/* CTA BUTTON (desktop only) */}
-          <button
+          {/* DESKTOP CTA */}
+          <Link
+            to="/request-quote"
             className={`hidden md:block px-5 py-2 rounded-full transition ${
               scrolled
                 ? "bg-primary text-white"
@@ -58,9 +62,9 @@ export default function Navbar() {
             }`}
           >
             Request Quote →
-          </button>
+          </Link>
 
-          {/* HAMBURGER (mobile only) */}
+          {/* HAMBURGER */}
           <div
             className="md:hidden text-2xl cursor-pointer"
             onClick={() => setOpen(true)}
@@ -70,15 +74,15 @@ export default function Navbar() {
         </div>
       </header>
 
-      {/* MOBILE MENU OVERLAY */}
+      {/* OVERLAY */}
       <div
-        className={`fixed inset-0 bg-black/60 z-50 transition-opacity duration-300 ${
+        className={`fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 ${
           open ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={() => setOpen(false)}
       />
 
-      {/* MOBILE SIDE MENU */}
+      {/* MOBILE MENU */}
       <div
         className={`fixed top-0 left-0 h-full w-3/4 max-w-sm bg-white z-50 transform transition-transform duration-300 ${
           open ? "translate-x-0" : "-translate-x-full"
@@ -86,7 +90,7 @@ export default function Navbar() {
       >
         <div className="p-6">
 
-          {/* CLOSE BUTTON */}
+          {/* CLOSE */}
           <div className="flex justify-end">
             <FaTimes
               size={22}
@@ -104,10 +108,14 @@ export default function Navbar() {
             <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
           </nav>
 
-          {/* CTA BUTTON */}
-          <button className="mt-10 w-full bg-primary text-white py-3 rounded-full">
+          {/* MOBILE CTA */}
+          <Link
+            to="/request-quote"
+            onClick={() => setOpen(false)}
+            className="mt-10 block text-center bg-primary text-white py-3 rounded-full"
+          >
             Request Quote →
-          </button>
+          </Link>
 
         </div>
       </div>
