@@ -49,6 +49,7 @@ export default function Navbar() {
             <Link to="/about">About</Link>
             <Link to="/services">Services</Link>
             <Link to="/products">Products</Link>
+            <Link to="/quality"> Quality </Link>
             <Link to="/contact">Contact</Link>
           </nav>
 
@@ -105,6 +106,7 @@ export default function Navbar() {
             <Link to="/about" onClick={() => setOpen(false)}>About</Link>
             <Link to="/services" onClick={() => setOpen(false)}>Services</Link>
             <Link to="/products" onClick={() => setOpen(false)}>Products</Link>
+            <Link to="/quality" onClick={() => setOpen(false)}>Quality</Link>
             <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
           </nav>
 

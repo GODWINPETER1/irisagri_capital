@@ -5,6 +5,7 @@ import Services from "./pages/Services";
 import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import RequestQuote from "./pages/RequestQoute";
+import Quality from "./pages/Quality";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <Route path="/about" element={<About />} />
       <Route path="/services" element={<Services />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/quality" element={<Quality/>}/>
       <Route path="/contact" element={<Contact />} />
       <Route path="/request-quote" element={<RequestQuote/>}/>
     </Routes>

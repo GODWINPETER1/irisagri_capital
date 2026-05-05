@@ -22,7 +22,7 @@ export default function ServicesStats() {
             What We Do
           </p>
 
-          <h2 className="text-4xl font-bold text-primary mt-2">
+          <h2 className="text-4xl font-bold text-teal-600 mt-2">
             Our Core Services
           </h2>
 
@@ -33,12 +33,14 @@ export default function ServicesStats() {
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition duration-300 cursor-pointer"
+                className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition duration-300 cursor-pointer group"
               >
-                <div className="text-3xl text-primary mb-3 flex justify-center">
+                {/* ICON */}
+                <div className="text-3xl text-teal-500 mb-3 flex justify-center group-hover:scale-110 transition">
                   {s.icon}
                 </div>
 
+                {/* TITLE */}
                 <h3 className="text-sm font-semibold text-gray-800">
                   {s.title}
                 </h3>
@@ -46,21 +48,21 @@ export default function ServicesStats() {
             ))}
           </div>
 
-          {/* Button */}
+          {/* BUTTON */}
           <div className="mt-8">
-            <button className="bg-primary text-white px-6 py-3 rounded-full hover:bg-green-800 transition">
+            <button className="bg-teal-500 text-white px-6 py-3 rounded-full hover:bg-teal-600 transition">
               View All Services →
             </button>
           </div>
         </div>
 
         {/* RIGHT */}
-        <div className="bg-gradient-to-br from-[#0f3d1c] to-[#166534] text-white rounded-3xl p-10 flex flex-col justify-between shadow-lg">
+        <div className="bg-gradient-to-br from-teal-700 to-teal-500 text-white rounded-3xl p-10 flex flex-col justify-between shadow-lg">
 
           <div>
             <h3 className="text-6xl font-bold">1000+</h3>
             <p className="mt-2 text-lg">Hectares</p>
-            <p className="text-sm text-gray-200">
+            <p className="text-sm text-gray-100">
               Of productive cashew farmland
             </p>
           </div>
