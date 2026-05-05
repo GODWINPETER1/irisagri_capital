@@ -3,38 +3,36 @@ import { Link } from "react-router-dom";
 
 export default function ServicesHero() {
   return (
-    <section className="relative h-[85vh] w-full">
+    <section className="relative min-h-screen w-full overflow-hidden">
 
       {/* BACKGROUND IMAGE */}
       <div
-          className="absolute inset-0 bg-cover bg-center scale-105"
-          style={{
-            backgroundImage:
-              "url('/images/yel.png')",
-          }}
-        />
+        className="absolute inset-0 bg-cover bg-center scale-[1.03]"
+        style={{
+          backgroundImage: "url('/images/yel.png')",
+        }}
+      />
 
       {/* OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
 
       {/* CONTENT */}
-      <div className="relative z-10 h-full flex items-center">
-
+      <div className="relative z-10 min-h-screen flex items-center">
         <div className="max-w-7xl mx-auto px-6 w-full">
 
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="max-w-xl text-white"
+            transition={{ duration: 0.8 }}
+            className="max-w-2xl text-white"
           >
             {/* LABEL */}
-            <p className="text-xs uppercase tracking-widest text-gray-300">
-              OUR SERVICES
+            <p className="uppercase tracking-widest text-sm mb-3 text-gray-300">
+              Our Services
             </p>
 
             {/* TITLE */}
-            <h1 className="text-4xl md:text-6xl font-bold mt-4 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
               Comprehensive
               <br />
               Cashew Farming
@@ -43,7 +41,7 @@ export default function ServicesHero() {
             </h1>
 
             {/* DESCRIPTION */}
-            <p className="mt-6 text-gray-200 leading-relaxed">
+            <p className="mt-5 text-lg text-gray-200">
               From quality seedlings to careful harvesting, we provide end-to-end
               services for sustainable and productive cashew farming.
             </p>
@@ -51,7 +49,7 @@ export default function ServicesHero() {
             {/* BUTTONS */}
             <div className="flex flex-wrap gap-4 mt-8">
 
-              <button className="bg-primary text-white px-6 py-3 rounded-full hover:bg-green-800 transition">
+              <button className="bg-primary px-6 py-3 rounded-full text-white hover:bg-green-800 transition">
                 Explore Services ↓
               </button>
 
@@ -63,10 +61,10 @@ export default function ServicesHero() {
               </Link>
 
             </div>
+
           </motion.div>
 
         </div>
-
       </div>
 
     </section>
