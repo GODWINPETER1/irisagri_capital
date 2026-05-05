@@ -36,7 +36,7 @@ export default function Navbar() {
               scrolled ? "text-primary" : "text-white"
             }`}
           >
-            Cashew Farm
+            Irisagri 
           </Link>
 
           {/* DESKTOP NAV */}
