@@ -33,7 +33,7 @@ export default function Navbar() {
           <Link
             to="/"
             className={`font-bold text-lg transition ${
-              scrolled ? "text-primary" : "text-white"
+              scrolled ? "text-[#0D9488]" : "text-white"
             }`}
           >
             Irisagri 
@@ -50,6 +50,7 @@ export default function Navbar() {
             <Link to="/services">Services</Link>
             <Link to="/products">Products</Link>
             <Link to="/quality"> Quality </Link>
+             <Link to="/sustainability"> sustainability </Link>
             <Link to="/contact">Contact</Link>
           </nav>
 
@@ -58,8 +59,8 @@ export default function Navbar() {
             to="/request-quote"
             className={`hidden md:block px-5 py-2 rounded-full transition ${
               scrolled
-                ? "bg-primary text-white"
-                : "bg-white text-black"
+                ? "bg-[#0D9488] text-white"
+                : "bg-[#0D9488] text-white"
             }`}
           >
             Request Quote →

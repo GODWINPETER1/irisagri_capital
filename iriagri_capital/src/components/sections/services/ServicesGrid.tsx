@@ -4,7 +4,7 @@ import { scaleIn, fadeUp } from "../../../utils/animations";
 const services = [
   {
     title: "Cashew Farming",
-    desc: "Over 1000+ hectares dedicated to high-quality cashew cultivation.",
+    desc: "Over 1000+ Acres dedicated to high-quality cashew cultivation.",
   },
   {
     title: "Seedling Preparation",
@@ -30,74 +30,192 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section className="py-28 bg-[#f8f8f8] text-center">
+    <section className="relative py-28 bg-[#F8FAFC] overflow-hidden">
 
-      {/* HEADER */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-      >
-        <p className="text-xs uppercase tracking-widest text-gray-500">
-          WHAT WE OFFER
-        </p>
+      {/* BACKGROUND GLOW */}
+      <div className="absolute top-[-120px] right-[-120px] w-[350px] h-[350px] bg-[#14B8A6]/10 blur-3xl rounded-full" />
 
-        <h2 className="text-4xl md:text-5xl font-bold text-primary mt-3">
-          Our Core Services
-        </h2>
-      </motion.div>
+      <div className="relative z-10">
 
-      {/* 🎥 VIDEO SECTION */}
-      <motion.div
-        variants={fadeUp}
-        initial="hidden"
-        whileInView="show"
-        transition={{ delay: 0.2 }}
-        className="mt-14 max-w-5xl mx-auto px-6"
-      >
-        <div className="relative rounded-3xl overflow-hidden shadow-xl">
+        {/* HEADER */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-center"
+        >
 
-          {/* VIDEO */}
-          <video
-            src="/images/farm.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-[300px] md:h-[450px] object-cover"
-          />
+          {/* LABEL */}
+          <div className="
+            inline-flex
+            items-center
+            gap-2
+            px-4 py-2
+            rounded-full
+            bg-[#0D9488]/10
+            border border-[#0D9488]/10
+            mb-6
+          ">
 
-          {/* OVERLAY */}
-          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-            {/* <h3 className="text-white text-2xl md:text-3xl font-semibold">
-              See Our Farming in Action
-            </h3> */}
+            <div className="w-2 h-2 rounded-full bg-[#14B8A6]" />
+
+            <p className="
+              text-[11px]
+              uppercase
+              tracking-[3px]
+              text-[#0F766E]
+              font-medium
+            ">
+              What We Offer
+            </p>
+
           </div>
 
+          {/* TITLE */}
+          <h2 className="
+            text-4xl
+            md:text-6xl
+            font-bold
+            text-[#0F172A]
+            leading-tight
+            tracking-tight
+          ">
+
+            Our Core
+            <span className="text-[#0D9488]">
+              {" "}Services
+            </span>
+
+          </h2>
+
+        </motion.div>
+
+        {/* VIDEO SECTION */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          transition={{ delay: 0.2 }}
+          className="mt-16 max-w-6xl mx-auto px-6"
+        >
+
+          <div className="
+            relative
+            rounded-[32px]
+            overflow-hidden
+            shadow-[0_25px_80px_rgba(2,6,23,0.15)]
+          ">
+
+            {/* VIDEO */}
+            <video
+              src="/images/farm.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="
+                w-full
+                h-[320px]
+                md:h-[500px]
+                object-cover
+              "
+            />
+
+            {/* LIGHT OVERLAY */}
+            <div className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-[#020617]/45
+              via-transparent
+              to-transparent
+            " />
+
+          </div>
+
+        </motion.div>
+
+        {/* SERVICES GRID */}
+        <div className="
+          grid
+          md:grid-cols-2
+          xl:grid-cols-3
+          gap-8
+          mt-20
+          max-w-7xl
+          mx-auto
+          px-6
+        ">
+
+          {services.map((s, i) => (
+            <motion.div
+              key={i}
+              variants={scaleIn}
+              initial="hidden"
+              whileInView="show"
+              transition={{ delay: i * 0.08 }}
+              className="
+                group
+                bg-white/80
+                backdrop-blur-md
+                border border-white
+                p-8
+                rounded-[30px]
+                shadow-[0_10px_40px_rgba(2,6,23,0.05)]
+                hover:shadow-[0_20px_60px_rgba(13,148,136,0.12)]
+                hover:-translate-y-2
+                transition-all
+                duration-500
+                text-left
+              "
+            >
+
+              {/* TOP ICON */}
+              <div className="
+                w-14 h-14
+                rounded-2xl
+                bg-[#0D9488]/10
+                flex
+                items-center
+                justify-center
+                text-[#0D9488]
+                font-bold
+                text-lg
+                mb-6
+                group-hover:bg-[#0D9488]
+                group-hover:text-white
+                transition-all
+                duration-500
+              ">
+                0{i + 1}
+              </div>
+
+              {/* TITLE */}
+              <h3 className="
+                font-semibold
+                text-2xl
+                text-[#0F172A]
+                leading-snug
+              ">
+                {s.title}
+              </h3>
+
+              {/* DESCRIPTION */}
+              <p className="
+                text-slate-600
+                mt-4
+                text-[15px]
+                leading-relaxed
+              ">
+                {s.desc}
+              </p>
+
+            </motion.div>
+          ))}
+
         </div>
-      </motion.div>
 
-      {/* SERVICES GRID */}
-      <div className="grid md:grid-cols-3 gap-8 mt-16 max-w-7xl mx-auto px-6">
-        {services.map((s, i) => (
-          <motion.div
-            key={i}
-            variants={scaleIn}
-            initial="hidden"
-            whileInView="show"
-            transition={{ delay: i * 0.1 }}
-            className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition duration-300"
-          >
-            <h3 className="font-semibold text-lg text-primary">
-              {s.title}
-            </h3>
-
-            <p className="text-gray-600 mt-3 text-sm">
-              {s.desc}
-            </p>
-          </motion.div>
-        ))}
       </div>
 
     </section>

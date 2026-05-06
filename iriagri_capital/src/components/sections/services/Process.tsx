@@ -7,31 +7,121 @@ export default function Process() {
   ];
 
   return (
-    <section className="py-28 bg-[#f3efe9] text-center">
+    <section className="py-28 bg-[#F8FAFC] overflow-hidden">
 
-      <p className="text-xs uppercase tracking-widest text-gray-500">
-        OUR PROCESS
-      </p>
+      <div className="max-w-7xl mx-auto px-6">
 
-      <h2 className="text-4xl font-bold text-primary mt-3">
-        Our Farming Process
-      </h2>
+        {/* HEADER */}
+        <div className="text-center">
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-10 mt-16">
+          <p className="
+            text-xs
+            uppercase
+            tracking-[4px]
+            text-[#0F766E]
+          ">
+            OUR PROCESS
+          </p>
 
-        {steps.map((step, i) => (
-          <div key={i} className="flex flex-col items-center">
+          <h2 className="
+            text-4xl
+            md:text-6xl
+            font-bold
+            text-[#0F172A]
+            mt-4
+            leading-tight
+          ">
+            Our Farming{" "}
 
-            <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow">
-              <img src={step.img} className="w-full h-full object-cover" />
+            <span className="text-[#0D9488]">
+              Process
+            </span>
+
+          </h2>
+
+        </div>
+
+        {/* PROCESS GRID */}
+        <div className="
+          grid
+          md:grid-cols-2
+          xl:grid-cols-4
+          gap-8
+          mt-20
+        ">
+
+          {steps.map((step, i) => (
+            <div
+              key={i}
+              className="
+                group
+                bg-white
+                rounded-[30px]
+                overflow-hidden
+                border
+                border-slate-100
+                shadow-[0_10px_40px_rgba(2,6,23,0.05)]
+                hover:shadow-[0_20px_60px_rgba(13,148,136,0.12)]
+                hover:-translate-y-2
+                transition-all
+                duration-500
+              "
+            >
+
+              {/* IMAGE */}
+              <div className="
+                relative
+                overflow-hidden
+                h-72
+              ">
+
+                <img
+                  src={step.img}
+                  className="
+                    w-full
+                    h-full
+                    object-cover
+                    group-hover:scale-110
+                    transition-transform
+                    duration-700
+                  "
+                />
+
+                {/* LIGHT OVERLAY */}
+                <div className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-t
+                  from-[#020617]/25
+                  via-transparent
+                  to-transparent
+                " />
+
+              </div>
+
+              {/* CONTENT */}
+              <div className="p-7 text-center">
+
+                <h3 className="
+                  text-2xl
+                  font-semibold
+                  text-[#0F172A]
+                  group-hover:text-[#0D9488]
+                  transition-colors
+                  duration-300
+                ">
+                  {step.title}
+                </h3>
+
+              </div>
+
             </div>
+          ))}
 
-            <p className="mt-4 font-semibold">{step.title}</p>
-
-          </div>
-        ))}
+        </div>
 
       </div>
+
     </section>
   );
 }

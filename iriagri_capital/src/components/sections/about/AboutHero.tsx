@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeUp } from "../../../utils/animations";
+import { Link } from "react-router-dom";
 
 export default function AboutHero() {
   return (
@@ -8,7 +9,7 @@ export default function AboutHero() {
       initial="hidden"
       animate="show"
       transition={{ duration: 0.8 }}
-      className="relative min-h-screen w-full flex items-center overflow-hidden"
+      className="relative min-h-screen w-full overflow-hidden bg-[#020617]"
     >
 
       {/* BACKGROUND IMAGE */}
@@ -20,35 +21,199 @@ export default function AboutHero() {
         }}
       />
 
-      {/* OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent" />
+      {/* PREMIUM CINEMATIC OVERLAY */}
+      <div className="
+        absolute
+        inset-0
+        bg-gradient-to-r
+        from-[#020617]/95
+        via-[#020617]/55
+        to-transparent
+      " />
+
+      {/* MAIN GLOW */}
+      <div className="
+        absolute
+        bottom-[-220px]
+        right-[-180px]
+        w-[700px]
+        h-[700px]
+        bg-[#14B8A6]/20
+        blur-3xl
+        rounded-full
+        z-0
+      " />
+
+      {/* SECONDARY GLOW */}
+      <div className="
+        absolute
+        top-[-120px]
+        left-[-100px]
+        w-[300px]
+        h-[300px]
+        bg-[#0D9488]/15
+        blur-3xl
+        rounded-full
+        z-0
+      " />
 
       {/* CONTENT */}
-      <div className="relative z-10 w-full">
-        <div className="max-w-7xl mx-auto px-6">
+      <div className="relative z-20 min-h-screen flex items-center">
 
-          <div className="max-w-2xl text-white">
+        <div className="max-w-7xl mx-auto px-6 w-full">
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9 }}
+            className="max-w-2xl text-white"
+          >
 
             {/* LABEL */}
-            <p className="uppercase tracking-widest text-sm mb-3 text-gray-300">
-              Our Story
-            </p>
+            <div className="
+              inline-flex
+              items-center
+              gap-2
+              px-4 py-2
+              rounded-full
+              bg-white/5
+              border
+              border-white/10
+              backdrop-blur-md
+              mb-5
+            ">
+
+              <div className="w-2 h-2 rounded-full bg-[#2DD4BF]" />
+
+              <p className="
+                uppercase
+                tracking-[3px]
+                text-[11px]
+                text-gray-200
+              ">
+                Our Story
+              </p>
+
+            </div>
 
             {/* TITLE */}
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-              About Our Farm
+            <h1 className="
+              text-5xl
+              md:text-7xl
+              py-6
+              font-bold
+              leading-[1.05]
+              tracking-tight
+            ">
+
+              About
+              <br />
+
+              <span className="text-[#5EEAD4]">
+                Our Farm
+              </span>
+
             </h1>
 
             {/* DESCRIPTION */}
-            <p className="mt-5 text-lg text-gray-200 leading-relaxed">
-              Rooted in tradition and driven by innovation, we cultivate premium
-              cashew nuts through sustainable farming practices and a commitment
+            <p className="
+              mt-2
+              text-lg
+              md:text-xl
+              text-slate-300
+              leading-relaxed
+              max-w-xl
+            ">
+              Rooted in tradition and driven by innovation,
+              we cultivate premium cashew nuts through
+              sustainable farming practices and a commitment
               to quality.
             </p>
 
-          </div>
+            {/* BUTTONS */}
+            <div className="flex flex-wrap gap-4 mt-10">
+
+              {/* PRIMARY BUTTON */}
+              <Link
+                to="/contact"
+                className="
+                  bg-[#0D9488]
+                  hover:bg-[#0F766E]
+                  text-white
+                  px-7 py-4
+                  rounded-full
+                  transition-all
+                  duration-300
+                  shadow-[0_10px_40px_rgba(13,148,136,0.35)]
+                  hover:shadow-[0_20px_60px_rgba(13,148,136,0.45)]
+                  hover:scale-[1.03]
+                  font-medium
+                "
+              >
+                Contact Us →
+              </Link>
+
+              {/* OUTLINE BUTTON */}
+              <Link
+                to="/services"
+                className="
+                  border border-white/20
+                  bg-white/5
+                  backdrop-blur-md
+                  px-7 py-4
+                  rounded-full
+                  text-white
+                  hover:bg-white
+                  hover:text-[#020617]
+                  transition-all
+                  duration-300
+                  font-medium
+                "
+              >
+                Our Services →
+              </Link>
+
+            </div>
+
+            {/* STATS */}
+            <div className="flex flex-wrap gap-10 mt-14">
+
+              <div>
+                <h3 className="text-3xl font-bold text-[#5EEAD4]">
+                  1000+
+                </h3>
+
+                <p className="text-slate-400 text-sm mt-1">
+                  Acres Farmed
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-3xl font-bold text-[#5EEAD4]">
+                  Premium
+                </h3>
+
+                <p className="text-slate-400 text-sm mt-1">
+                  Export Quality
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-3xl font-bold text-[#5EEAD4]">
+                  Global
+                </h3>
+
+                <p className="text-slate-400 text-sm mt-1">
+                  Supply Ready
+                </p>
+              </div>
+
+            </div>
+
+          </motion.div>
 
         </div>
+
       </div>
 
     </motion.section>

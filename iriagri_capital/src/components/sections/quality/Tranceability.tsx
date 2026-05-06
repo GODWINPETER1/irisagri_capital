@@ -37,35 +37,98 @@ const steps = [
 
 export default function Traceability() {
   return (
-    <section className="py-28 bg-white text-center">
+    <section className="py-28 bg-[#F8FAFC] text-center overflow-hidden">
 
       {/* HEADER */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        className="max-w-2xl mx-auto"
+        transition={{ duration: 0.7 }}
+        className="max-w-2xl mx-auto px-6"
       >
-        <p className="text-xs uppercase tracking-widest text-gray-500">
-          TRACEABILITY
-        </p>
 
-        <h2 className="text-4xl md:text-5xl font-bold text-primary mt-3">
-          Traceability & Transparency
+        {/* LABEL */}
+        <div className="
+          inline-flex
+          items-center
+          gap-2
+          px-4 py-2
+          rounded-full
+          bg-[#0D9488]/10
+          border border-[#0D9488]/10
+          mb-6
+        ">
+
+          <div className="w-2 h-2 rounded-full bg-[#14B8A6]" />
+
+          <p className="
+            text-[11px]
+            uppercase
+            tracking-[3px]
+            text-[#0F766E]
+            font-medium
+          ">
+            Traceability
+          </p>
+
+        </div>
+
+        {/* TITLE */}
+        <h2 className="
+          text-4xl
+          md:text-5xl
+          font-bold
+          text-[#0F172A]
+          leading-tight
+          tracking-tight
+        ">
+
+          Traceability
+          <span className="text-[#0D9488]">
+            {" "}& Transparency
+          </span>
+
         </h2>
 
-        <p className="mt-4 text-gray-600">
-          Every cashew nut can be traced from farm to final delivery,
-          ensuring accountability and consistent quality.
+        {/* DESCRIPTION */}
+        <p className="
+          mt-5
+          text-lg
+          text-slate-600
+          leading-relaxed
+        ">
+          Every cashew nut can be traced from farm
+          to final delivery, ensuring accountability
+          and consistent quality.
         </p>
+
       </motion.div>
 
       {/* TIMELINE */}
-      <div className="relative mt-16 max-w-7xl mx-auto px-6">
+      <div className="relative mt-20 max-w-7xl mx-auto px-6">
 
         {/* LINE */}
-        <div className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] bg-gray-200 -translate-y-1/2"></div>
+        <div className="
+          hidden
+          md:block
+          absolute
+          top-8
+          left-0
+          w-full
+          h-[2px]
+          bg-gradient-to-r
+          from-transparent
+          via-[#0D9488]/20
+          to-transparent
+        " />
 
-        <div className="grid md:grid-cols-5 gap-10 relative">
+        {/* GRID */}
+        <div className="
+          grid
+          md:grid-cols-5
+          gap-8
+          relative
+        ">
 
           {steps.map((step, i) => (
             <motion.div
@@ -73,25 +136,68 @@ export default function Traceability() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="relative flex flex-col items-center text-center group"
+              className="relative group"
             >
-              {/* ICON */}
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-primary text-white text-xl shadow-lg group-hover:scale-110 transition">
-                {step.icon}
+
+              {/* CARD */}
+              <div className="
+                bg-white
+                rounded-[28px]
+                border
+                border-slate-100
+                p-8
+                shadow-[0_10px_40px_rgba(2,6,23,0.05)]
+                hover:shadow-[0_20px_60px_rgba(13,148,136,0.12)]
+                hover:-translate-y-2
+                transition-all
+                duration-500
+                h-full
+              ">
+
+                {/* ICON */}
+                <div className="
+                  w-16
+                  h-16
+                  mx-auto
+                  rounded-2xl
+                  bg-[#0D9488]/10
+                  text-[#0D9488]
+                  flex
+                  items-center
+                  justify-center
+                  text-2xl
+                  group-hover:bg-[#0D9488]
+                  group-hover:text-white
+                  transition-all
+                  duration-300
+                ">
+                  {step.icon}
+                </div>
+
+                {/* TITLE */}
+                <h3 className="
+                  mt-6
+                  text-xl
+                  font-semibold
+                  text-[#0F172A]
+                  group-hover:text-[#0D9488]
+                  transition-colors
+                  duration-300
+                ">
+                  {step.title}
+                </h3>
+
+                {/* DESCRIPTION */}
+                <p className="
+                  text-sm
+                  text-slate-600
+                  mt-4
+                  leading-relaxed
+                ">
+                  {step.desc}
+                </p>
+
               </div>
-
-              {/* TITLE */}
-              <h3 className="mt-4 font-semibold text-lg text-gray-800">
-                {step.title}
-              </h3>
-
-              {/* DESCRIPTION */}
-              <p className="text-sm text-gray-600 mt-2 max-w-[180px]">
-                {step.desc}
-              </p>
-
-              {/* DOT CONNECTOR */}
-              <div className="hidden md:block absolute top-8 w-3 h-3 bg-primary rounded-full"></div>
 
             </motion.div>
           ))}

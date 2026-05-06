@@ -10,7 +10,7 @@ const items = [
 
 export default function Practices() {
   return (
-    <section className="py-28 bg-[#f8f8f8] text-center">
+    <section className="py-28 bg-[#F8FAFC] text-center">
 
       {/* HEADER */}
       <motion.div
@@ -20,12 +20,15 @@ export default function Practices() {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-xs uppercase tracking-widest text-gray-500">
+        <p className="text-xs uppercase tracking-widest text-[#0F766E]">
           OUR PROCESS
         </p>
 
-        <h2 className="text-4xl md:text-5xl font-bold text-primary mt-3">
-          Sustainable Farming Practices
+        <h2 className="text-4xl md:text-5xl font-bold text-[#0F172A] mt-3">
+          Sustainable Farming{" "}
+          <span className="text-[#0D9488]">
+            Practices
+          </span>
         </h2>
       </motion.div>
 
@@ -40,22 +43,45 @@ export default function Practices() {
             whileInView="show"
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: i * 0.1 }}
-            className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group cursor-pointer"
+            className="
+              bg-white
+              rounded-3xl
+              overflow-hidden
+              border border-slate-100
+              shadow-[0_10px_40px_rgba(2,6,23,0.05)]
+              hover:shadow-[0_20px_60px_rgba(13,148,136,0.12)]
+              hover:-translate-y-2
+              transition-all
+              duration-500
+              group
+              cursor-pointer
+            "
           >
+
             {/* IMAGE */}
             <div className="overflow-hidden">
               <img
                 src={item.img}
-                className="h-48 w-full object-cover group-hover:scale-110 transition duration-500"
+                className="
+                  h-48
+                  w-full
+                  object-cover
+                  group-hover:scale-110
+                  transition
+                  duration-700
+                "
               />
             </div>
 
             {/* CONTENT */}
-            <div className="p-5">
-              <h3 className="font-semibold text-lg text-gray-800">
+            <div className="p-6">
+
+              <h3 className="font-semibold text-lg text-[#0F172A]">
                 {item.title}
               </h3>
+
             </div>
+
           </motion.div>
         ))}
 

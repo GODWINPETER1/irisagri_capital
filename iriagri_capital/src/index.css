@@ -23,3 +23,8 @@
   border-color: #166534;
   box-shadow: 0 0 0 2px rgba(22, 101, 52, 0.2);
 }
+body {
+  background: #F8FAFC;
+  color: #0F172A;
+  overflow-x: hidden;
+}
