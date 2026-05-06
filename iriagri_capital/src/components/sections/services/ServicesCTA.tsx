@@ -71,7 +71,7 @@ export default function ServicesCTA() {
             ">
 
               <img
-                src="/images/services/nuts.png"
+                src="/images/nuts.png"
                 className="
                   w-full
                   h-full
