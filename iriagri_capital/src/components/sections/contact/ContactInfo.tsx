@@ -1,8 +1,8 @@
 export default function ContactInfo() {
   const items = [
-    { title: "Phone", text: "+255 xxx xxx" },
-    { title: "Email", text: "info@cashew.com" },
-    { title: "Location", text: "Mtwara, Tanzania" },
+    { title: "Phone", text: "+255 757 861 117" },
+    { title: "Email", text: "info@irisagri.co.tz" },
+    { title: "Location", text: "Manyoni Singida, Tanzania" },
     { title: "WhatsApp", text: "+255 xxx xxx" },
   ];
 

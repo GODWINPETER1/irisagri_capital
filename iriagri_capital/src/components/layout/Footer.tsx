@@ -188,7 +188,7 @@ export default function Footer() {
                 </p>
 
                 <p className="text-slate-300">
-                  +25576581xxxxx
+                  +255 757 861 117
                 </p>
               </div>
 
@@ -198,7 +198,7 @@ export default function Footer() {
                 </p>
 
                 <p className="text-slate-300">
-                  Manyoni Dodoma , Tanzania
+                  Manyoni Singida, Tanzania
                 </p>
               </div>
 
