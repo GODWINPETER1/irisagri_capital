@@ -28,10 +28,10 @@ export default function RequestQuote() {
 
     setLoading(true);
     setSuccess("");
-    setError("");
+    setError(""); 
 
     try {
-      const res = await fetch("http://localhost:5000/api/quote", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/quote`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

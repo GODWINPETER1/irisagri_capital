@@ -1,7 +1,6 @@
 import Navbar from "../components/layout/Navbar";
 import Hero from "../components/sections/home/Hero";
 import ServicesStats from "../components/sections/home/ServicesStats";
-import AboutPreview from "../components/sections/home/AboutPreview";
 import Vision from "../components/sections/home/Vision";
 import Partner from "../components/sections/home/Partner";
 import Features from "../components/sections/home/Features";
