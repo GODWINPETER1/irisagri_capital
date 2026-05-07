@@ -108,6 +108,7 @@ export default function Navbar() {
             <Link to="/services" onClick={() => setOpen(false)}>Services</Link>
             <Link to="/products" onClick={() => setOpen(false)}>Products</Link>
             <Link to="/quality" onClick={() => setOpen(false)}>Quality</Link>
+            <Link to="/sustainability" onClick={() => setOpen(false)}> sustainability </Link>
             <Link to="/contact" onClick={() => setOpen(false)}>Contact</Link>
           </nav>
 

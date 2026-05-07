@@ -349,165 +349,286 @@ export default function ServicesStats() {
       </section>
 
       {/* MODAL */}
-      <AnimatePresence>
+      {/* MODAL */}
+<AnimatePresence>
 
-        {selectedService && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+  {selectedService && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={() => setSelectedService(null)}
+      className="
+        fixed
+        inset-0
+        z-[999]
+        bg-black/70
+        backdrop-blur-md
+        flex
+        items-center
+        justify-center
+        p-4
+        md:p-6
+      "
+    >
+
+      {/* MODAL CARD */}
+      <motion.div
+        initial={{ opacity: 0, y: 40, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 20 }}
+        transition={{ duration: 0.3 }}
+        onClick={(e) => e.stopPropagation()}
+        className="
+          relative
+          w-full
+          max-w-3xl
+          max-h-[92vh]
+          overflow-y-auto
+          rounded-[28px]
+          md:rounded-[36px]
+          bg-white
+          shadow-[0_25px_100px_rgba(2,6,23,0.35)]
+        "
+      >
+
+        {/* MOBILE SAFE CLOSE */}
+        <div className="
+          sticky
+          top-0
+          z-30
+          flex
+          justify-end
+          p-4
+          bg-gradient-to-b
+          from-white
+          to-white/80
+          backdrop-blur-md
+        ">
+
+          <button
+            onClick={() => setSelectedService(null)}
             className="
-              fixed
-              inset-0
-              z-[999]
-              bg-black/60
-              backdrop-blur-sm
+              w-11
+              h-11
+              rounded-full
+              bg-[#F0FDFA]
+              text-[#0D9488]
               flex
               items-center
               justify-center
-              px-6
+              shadow-md
+              hover:bg-[#0D9488]
+              hover:text-white
+              transition-all
+              duration-300
             "
           >
+            <FaTimes />
+          </button>
 
-            <motion.div
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20 }}
+        </div>
+
+        {/* CONTENT */}
+        <div className="px-5 pb-6 md:px-10 md:pb-10">
+
+          {/* ICON */}
+          <div className="
+            w-16
+            h-16
+            md:w-20
+            md:h-20
+            rounded-3xl
+            bg-[#0D9488]/10
+            text-[#0D9488]
+            flex
+            items-center
+            justify-center
+            text-3xl
+            md:text-4xl
+          ">
+            {selectedService.icon}
+          </div>
+
+          {/* TITLE */}
+          <h2 className="
+            mt-6
+            text-3xl
+            md:text-5xl
+            font-bold
+            leading-tight
+            text-[#0F172A]
+          ">
+            {selectedService.title}
+          </h2>
+
+          {/* DESCRIPTION */}
+          <p className="
+            mt-5
+            text-[15px]
+            md:text-lg
+            leading-relaxed
+            text-slate-600
+          ">
+            {selectedService.description}
+          </p>
+
+          {/* BEST PERIOD */}
+          <div className="
+            mt-8
+            bg-[#F0FDFA]
+            border
+            border-[#CCFBF1]
+            rounded-2xl
+            p-5
+          ">
+
+            <h3 className="
+              text-lg
+              font-semibold
+              text-[#0F172A]
+            ">
+              Best Period
+            </h3>
+
+            <p className="
+              mt-2
+              text-[#0F766E]
+              leading-relaxed
+            ">
+              {selectedService.bestPeriod}
+            </p>
+
+          </div>
+
+          {/* CLIMATE */}
+          <div className="
+            mt-5
+            bg-[#F8FAFC]
+            border
+            border-[#E2E8F0]
+            rounded-2xl
+            p-5
+          ">
+
+            <h3 className="
+              text-lg
+              font-semibold
+              text-[#0F172A]
+            ">
+              Climate & Conditions
+            </h3>
+
+            <p className="
+              mt-2
+              text-slate-600
+              leading-relaxed
+            ">
+              {selectedService.climate}
+            </p>
+
+          </div>
+
+          {/* TIPS */}
+          <div className="mt-8">
+
+            <h3 className="
+              text-lg
+              font-semibold
+              text-[#0F172A]
+            ">
+              Important Tips
+            </h3>
+
+            <div className="
+              grid
+              md:grid-cols-2
+              gap-4
+              mt-5
+            ">
+
+              {selectedService.tips.map((tip: string, i: number) => (
+                <div
+                  key={i}
+                  className="
+                    bg-[#F8FAFC]
+                    border
+                    border-[#CCFBF1]
+                    rounded-2xl
+                    px-5
+                    py-4
+                    text-slate-700
+                    text-sm
+                    md:text-base
+                    leading-relaxed
+                  "
+                >
+                  ✔ {tip}
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+
+          {/* ACTION BUTTONS */}
+          <div className="
+            flex
+            flex-col
+            sm:flex-row
+            gap-4
+            mt-10
+          ">
+
+            <button
+              onClick={() => setSelectedService(null)}
               className="
-                relative
-                w-full
-                max-w-2xl
-                bg-white
-                rounded-[32px]
-                p-10
-                shadow-[0_20px_80px_rgba(2,6,23,0.25)]
+                flex-1
+                bg-[#0D9488]
+                hover:bg-[#0F766E]
+                text-white
+                py-4
+                rounded-full
+                transition-all
+                duration-300
+                font-medium
+                shadow-[0_10px_40px_rgba(13,148,136,0.25)]
               "
             >
+              Close Dialog
+            </button>
 
-              {/* CLOSE */}
-              <button
-                onClick={() => setSelectedService(null)}
-                className="
-                  absolute
-                  top-5
-                  right-5
-                  w-10
-                  h-10
-                  rounded-full
-                  bg-[#F0FDFA]
-                  text-[#0D9488]
-                  flex
-                  items-center
-                  justify-center
-                  hover:bg-[#0D9488]
-                  hover:text-white
-                  transition-all
-                "
-              >
-                <FaTimes />
-              </button>
-
-              {/* ICON */}
-              <div className="
-                w-16
-                h-16
-                rounded-2xl
-                bg-[#0D9488]/10
-                text-[#0D9488]
-                flex
-                items-center
-                justify-center
-                text-3xl
-              ">
-                {selectedService.icon}
-              </div>
-
-              {/* TITLE */}
-              <h2 className="mt-6 text-4xl font-bold text-[#0F172A]">
-                {selectedService.title}
-              </h2>
-
-              {/* DESCRIPTION */}
-              <p className="mt-5 text-slate-600 leading-relaxed">
-                {selectedService.description}
-              </p>
-
-              {/* BEST PERIOD */}
-              <div className="
-                mt-8
+            <Link
+              to="/contact"
+              className="
+                flex-1
+                text-center
+                border
+                border-[#0D9488]/20
                 bg-[#F0FDFA]
-                border
-                border-[#CCFBF1]
-                rounded-2xl
-                p-5
-              ">
+                text-[#0D9488]
+                py-4
+                rounded-full
+                font-medium
+                hover:bg-[#0D9488]
+                hover:text-white
+                transition-all
+                duration-300
+              "
+            >
+              Contact Us →
+            </Link>
 
-                <h3 className="font-semibold text-[#0F172A]">
-                  Best Period
-                </h3>
+          </div>
 
-                <p className="mt-2 text-[#0F766E]">
-                  {selectedService.bestPeriod}
-                </p>
+        </div>
 
-              </div>
+      </motion.div>
 
-              {/* CLIMATE */}
-              <div className="
-                mt-5
-                bg-[#F8FAFC]
-                border
-                border-[#E2E8F0]
-                rounded-2xl
-                p-5
-              ">
+    </motion.div>
+  )}
 
-                <h3 className="font-semibold text-[#0F172A]">
-                  Climate & Conditions
-                </h3>
-
-                <p className="mt-2 text-slate-600">
-                  {selectedService.climate}
-                </p>
-
-              </div>
-
-              {/* TIPS */}
-              <div className="mt-8">
-
-                <h3 className="font-semibold text-[#0F172A]">
-                  Important Tips
-                </h3>
-
-                <div className="grid md:grid-cols-2 gap-4 mt-4">
-
-                  {selectedService.tips.map((tip: string, i: number) => (
-                    <div
-                      key={i}
-                      className="
-                        bg-[#F8FAFC]
-                        border
-                        border-[#CCFBF1]
-                        rounded-2xl
-                        px-5
-                        py-4
-                        text-slate-700
-                      "
-                    >
-                      ✔ {tip}
-                    </div>
-                  ))}
-
-                </div>
-
-              </div>
-
-            </motion.div>
-
-          </motion.div>
-        )}
-
-      </AnimatePresence>
+</AnimatePresence>
     </>
   );
 }
