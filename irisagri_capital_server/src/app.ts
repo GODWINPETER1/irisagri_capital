@@ -1,10 +1,10 @@
 import express from "express";
-import cors from "cors"
+import cors from "cors";
+
 import contactRoutes from "./routes/contact.routes";
 import quoteRoutes from "./routes/quote.routes";
 
 const app = express();
-
 
 app.use(
   cors({
@@ -17,12 +17,10 @@ app.use(
   })
 );
 
-app.options("*", cors());
-
 app.use(express.json());
 
 // routes
-app.use("/api" , contactRoutes);
-app.use("/api" , quoteRoutes);
+app.use("/api", contactRoutes);
+app.use("/api", quoteRoutes);
 
 export default app;
