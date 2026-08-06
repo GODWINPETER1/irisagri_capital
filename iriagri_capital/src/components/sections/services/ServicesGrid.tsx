@@ -190,9 +190,8 @@ export default function ServicesGrid() {
             ">
 
               <video
-                src="/images/farm.mp4"
+                src="/images/farms.mp4"
                 autoPlay
-                muted
                 loop
                 playsInline
                 className="
