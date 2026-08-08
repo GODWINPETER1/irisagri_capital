@@ -6,12 +6,15 @@ import quoteRoutes from "./routes/quote.routes";
 
 const app = express();
 
+const allowedOrigins = [
+  "https://irisagri.co.tz",
+  "https://www.irisagri.co.tz",
+  "http://localhost:5173",
+];
+
 app.use(
   cors({
-    origin: [
-      "https://irisagri.co.tz",
-      "https://www.irisagri.co.tz",
-    ],
+    origin: allowedOrigins,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
